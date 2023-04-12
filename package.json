@@ -1,0 +1,27 @@
+{
+  "name": "discord.js-v14-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Rainbow-Studios/discord.js-v14-handler"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Rainbow-Studios/discord.js-v14-handler/issues"
+  },
+  "homepage": "https://github.com/The-Rainbow-Studios/discord.js-v14-handler#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "enmap": "^5.9.5"
+  }
+}
