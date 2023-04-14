@@ -2,20 +2,16 @@ const Discord = require("discord.js");
 const config = require(`./botconfig/config.js`);
 const settings = require(`./botconfig/settings.js`);
 const colors = require("colors");
-const Enmap = require("enmap");
 const client = new Discord.Client({
     fetchAllMembers: false,
-    //restTimeOffset: 0,
-    //restWsBridgetimeout: 100,
     shards: "auto",
-    //shardCount: 5,
     allowedMentions: {
       parse: [ ],
       repliedUser: false,
     },
     failIfNotExists: false,
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: [ 
+    intents: [
         Discord.GatewayIntentBits.Guilds,
          Discord.GatewayIntentBits.GuildMembers,
          Discord.GatewayIntentBits.GuildIntegrations,
@@ -25,8 +21,8 @@ const client = new Discord.Client({
     ],
     presence: {
       activity: {
-        name: `+help | Rainbow Studios`, 
-        type: "PLAYING", 
+        name: `+help | Rainbow Studios`,
+        type: "PLAYING",
       },
       status: "online"
     }
@@ -44,8 +40,6 @@ client.maps = new Map();
 
 client.setMaxListeners(100); require('events').defaultMaxListeners = 100;
 
-client.settings = new Enmap({ name: "settings",dataDir: "./databases/settings"});
-client.infos = new Enmap({ name: "infos", dataDir: "./databases/infos"});
 
 //Require the Handlers                  Add the antiCrash file too, if its enabled
 ["events", "commands", "slashCommands", settings.antiCrash ? "antiCrash" : null]
@@ -55,3 +49,5 @@ client.infos = new Enmap({ name: "infos", dataDir: "./databases/infos"});
     })
 //Start the Bot
 client.login(config.token) 
+//End of the File
+
