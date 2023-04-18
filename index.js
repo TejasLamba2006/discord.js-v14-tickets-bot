@@ -72,7 +72,7 @@ client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 client.slashCommands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-client.categories = require("fs").readdirSync(`./commands`);
+client.categories = require("fs").readdirSync(`./slashCommands`);
 client.allEmojis = require("./botconfig/emojis.js");
 client.maps = new Map();
 

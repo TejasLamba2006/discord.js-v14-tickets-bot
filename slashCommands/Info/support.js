@@ -6,6 +6,7 @@ var ee = require("../../botconfig/embed.js");
 const settings = require("../../botconfig/settings.js");
 module.exports = {
   name: "support", //the command name for execution & for helpcmd [OPTIONAL]
+  category: "Info",
   cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
   description: "Sends a Link of the Support Server", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]

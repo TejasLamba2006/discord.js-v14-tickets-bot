@@ -6,6 +6,7 @@ var ee = require("../../botconfig/embed.js");
 const settings = require("../../botconfig/settings.js");
 module.exports = {
   name: "commandcount", //the command name for execution & for helpcmd [OPTIONAL]
+  category: "Info",
   cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
   description: "Shows the Amount of Commands an Categories", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
@@ -35,7 +36,6 @@ module.exports = {
         embeds: [new EmbedBuilder()
           .setColor(ee.color)
           .setFooter({ text: ee.footertext, iconURL: ee.footericon})
-          .setTitle(`:gear: **[${client.commands.size}] Commands**`)
           .setDescription(`:gear: **[${client.categories.length}] Categories**\n\n:gear: **[${client.slashCommands.size + client.slashCommands.map(d => d.options).flat().length}] Slash Commands**\n\n`)
         ]
       });

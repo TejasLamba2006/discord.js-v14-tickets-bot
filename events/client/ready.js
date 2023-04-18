@@ -1,6 +1,6 @@
 //here the event starts
 const config = require("../../botconfig/config.js")
-const { change_status } = require("../../handlers/functions");
+
 module.exports = client => {
   try{
     try{
@@ -13,10 +13,22 @@ module.exports = client => {
       console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
       console.log(`     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`.bold.brightGreen)
     }catch{ /* */ }
-    change_status(client);
+        try {
+      client.user.setActivity(`/help | ${client.guilds.cache.size} Guilds | ${Math.ceil(client.users.cache.size/1000)}k Members`, {
+        type: "PLAYING",
+      });
+    } catch (e) {
+      console.log(String(e.stack).bgRed)
+    }
     //loop through the status per each 10 minutes
     setInterval(()=>{
-      change_status(client);
+          try {
+      client.user.setActivity(`/help | ${client.guilds.cache.size} Guilds | ${Math.ceil(client.users.cache.size/1000)}k Members`, {
+        type: "PLAYING",
+      });
+    } catch (e) {
+      console.log(String(e.stack).bgRed)
+    }
     }, 15 * 1000);
   
   } catch (e){

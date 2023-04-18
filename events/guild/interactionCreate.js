@@ -8,8 +8,8 @@ const {
 } = require("../../handlers/functions");
 const Discord = require("discord.js");
 module.exports = (client, interaction) => {
+ // interaction.deferReply();
   const CategoryName = interaction.commandName;
-
   let command = false;
   try {
     if (client.slashCommands.has(CategoryName + interaction.options.getSubcommand())) {
@@ -21,21 +21,7 @@ module.exports = (client, interaction) => {
     }
   }
   if (command) {
-    let botchannels = client.settings.get(interaction.guildId, `botchannel`);
-    if (!botchannels || !Array.isArray(botchannels)) botchannels = [];
-    if (botchannels.length > 0) {
-      if (!botchannels.includes(interaction.channelId) && !interaction.member.permissions.has("ADMINISTRATOR")) {
-        return interaction.reply({
-          ephemeral: true,
-          embeds: [new Discord.EmbedBuilder()
-            .setColor(ee.wrongcolor)
-            .setFooter({ text: ee.footertext, iconURL: ee.footericon})
-            .setTitle(`${client.allEmojis.x} **You are not allowed to use this Command in here!**`)
-            .setDescription(`Please do it in one of those:\n> ${botchannels.map(c=>`<#${c}>`).join(", ")}`)
-          ]
-        })
-      }
-    }
+    
     if (onCoolDown(interaction, command)) {
       return interaction.reply({
         ephemeral: true,

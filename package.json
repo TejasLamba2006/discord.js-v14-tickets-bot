@@ -22,6 +22,9 @@
     "cpu-stat": "^2.0.1",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
-    "enmap": "^5.9.5"
+    "enmap": "^5.9.5",
+    "mongoose": "^7.0.4",
+    "quick.db": "^9.1.6",
+    "quickmongo": "^5.2.0"
   }
 }

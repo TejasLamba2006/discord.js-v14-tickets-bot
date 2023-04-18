@@ -6,6 +6,7 @@ const ee = require("../../botconfig/embed.js");
 const settings = require("../../botconfig/settings.js");
 module.exports = {
   name: "help", //the command name for execution & for helpcmd [OPTIONAL]
+  category: "Info",
   cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
   description: "Returns all Commmands, or one specific command", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
@@ -78,13 +79,13 @@ module.exports = {
           .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are Slash Commands!**`)
           .setFooter({text: `To see command Descriptions and Information, type: ${prefix}help [CMD NAME]`, iconURL: client.user.displayAvatarURL()});
         const commands = (category) => {
-          return client.commands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
+          return client.slashCommands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
         };
         try {
           for (let i = 0; i < client.categories.length; i += 1) {
             const current = client.categories[i];
             const items = commands(current);
-            embed.addFields(`**${current.toUpperCase()} [${items.length}]**`, `> ${items.join(", ")}`);
+            embed.addFields({name: `**${current.toUpperCase()} [${items.length}]**`, value: `> ${items.join(", ")}`});
           }
         } catch (e) {
           console.log(String(e.stack).red);

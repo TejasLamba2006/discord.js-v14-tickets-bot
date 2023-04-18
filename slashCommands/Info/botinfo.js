@@ -10,6 +10,7 @@ let os = require("os");
 module.exports = {
 
     name: "botinfo", //the command name for execution & for helpcmd [OPTIONAL]
+    category: "Info",
     cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
     description: "Shows Bot Information", //the command description for helpcmd [OPTIONAL]
     memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
@@ -25,12 +26,12 @@ module.exports = {
                     let connectedchannelsamount = 0;
                     let guilds = client.guilds.cache.map((guild) => guild);
                     for (let i = 0; i < guilds.length; i++) {
-                        if (guilds[i].me.voice.channel) connectedchannelsamount += 1;
+                        if (guilds[i].members.me.voice.channel) connectedchannelsamount += 1;
                     }
                     if (connectedchannelsamount > client.guilds.cache.size) connectedchannelsamount = client.guilds.cache.size;
 
                     const botinfo = new EmbedBuilder()
-                        .setAuthor({text: client.user.username, iconURL: client.user.displayAvatarURL()})
+                        .setAuthor({name: client.user.username, iconURL: client.user.displayAvatarURL()})
                         .setTitle("__**Stats:**__")
                         .setColor(ee.color)
                         .addFields({ 
@@ -133,7 +134,7 @@ module.exports = {
                     let connectedchannelsamount = 0;
                     let guilds = client.guilds.cache.map((guild) => guild);
                     for (let i = 0; i < guilds.length; i++) {
-                        if (guilds[i].me.voice.channel) connectedchannelsamount += 1;
+                        if (guilds[i].members.me.voice.channel) connectedchannelsamount += 1;
                     }
                     if (connectedchannelsamount > client.guilds.cache.size) connectedchannelsamount = client.guilds.cache.size;
                     const botinfo = new EmbedBuilder()

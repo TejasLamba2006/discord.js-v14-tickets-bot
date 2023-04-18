@@ -7,7 +7,6 @@ module.exports = (client) => {
 		let allCommands = [];
         readdirSync("./slashCommands/").forEach((dir) => {
 			if(lstatSync(`./slashCommands/${dir}`).isDirectory()) {
-				const groupName = dir;
 				const cmdSetup = dirSetup.find(d=>d.Folder == dir);
 				//If its a valid cmdsetup
 				if(cmdSetup && cmdSetup.Folder) {

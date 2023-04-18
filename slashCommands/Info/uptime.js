@@ -9,6 +9,7 @@ const {
 const settings = require("../../botconfig/settings.js");
 module.exports = {
   name: "uptime", //the command name for execution & for helpcmd [OPTIONAL]
+  category: "Info",
   cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
   description: "Returns the duration on how long the Bot is online", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
