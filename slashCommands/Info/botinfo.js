@@ -30,28 +30,100 @@ module.exports = {
                     if (connectedchannelsamount > client.guilds.cache.size) connectedchannelsamount = client.guilds.cache.size;
 
                     const botinfo = new EmbedBuilder()
-                        .setAuthor(client.user.username, client.user.displayAvatarURL())
+                        .setAuthor({text: client.user.username, iconURL: client.user.displayAvatarURL()})
                         .setTitle("__**Stats:**__")
                         .setColor(ee.color)
-                        .addField("⏳ Memory Usage", `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}/ ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB\``, true)
-                        .addField("⌚️ Uptime ", `${duration(client.uptime).map(i=>`\`${i}\``).join(", ")}`, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("📁 Users", `\`Total: ${client.users.cache.size} Users\``, true)
-                        .addField("📁 Servers", `\`Total: ${client.guilds.cache.size} Servers\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("📁 Voice-Channels", `\`${client.channels.cache.filter((ch) => ch.type === "GUILD_VOICE" || ch.type === "GUILD_STAGE_VOICE").size}\``, true)
-                        .addField("🔊 Connections", `\`${connectedchannelsamount} Connections\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("👾 Discord.js", `\`v${Discord.version}\``, true)
-                        .addField("🤖 Node", `\`${process.version}\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("🤖 CPU", `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``)
-                        .addField("🤖 CPU usage", `\`${percent.toFixed(2)}%\``, true)
-                        .addField("🤖 Arch", `\`${os.arch()}\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("💻 Platform", `\`\`${os.platform()}\`\``, true)
-                        .addField("API Latency", `\`${client.ws.ping}ms\``, true)
-                        .setFooter({text: "Coded by: Tejas Laba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
+                        .addFields({ 
+                            name: '⏳ Memory Usage', 
+                            value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}/ ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB\``,
+                            inline: true 
+                        },
+                        { 
+                            name: '⌚️ Uptime', 
+                            value: `${duration(client.uptime).map(i => `\`${i}\``).join(', ')}`,
+                            inline: true 
+                        },
+                        { 
+                            name: '\u200b', 
+                            value: '\u200b', 
+                            inline: true 
+                        },
+                        { 
+                            name: '📁 Users', 
+                            value: `\`Total: ${client.users.cache.size} Users\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '📁 Servers', 
+                            value: `\`Total: ${client.guilds.cache.size} Servers\``,
+                            inline: true 
+                        },
+                        { 
+                            name: '\u200b', 
+                            value: '\u200b', 
+                            inline: true 
+                        },
+                        { 
+                            name: '📁 Voice-Channels', 
+                            value: `\`${client.channels.cache.filter((ch) => ch.type === "GUILD_VOICE" || ch.type === "GUILD_STAGE_VOICE").size}\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '🔊 Connections', 
+                            value: `\`${connectedchannelsamount} Connections\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '\u200b', 
+                            value: '\u200b', 
+                            inline: true 
+                        },
+                        { 
+                            name: '👾 Discord.js', 
+                            value: `\`v${Discord.version}\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '🤖 Node', 
+                            value: `\`${process.version}\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '\u200b', 
+                            value: '\u200b', 
+                            inline: true 
+                        },
+                        { 
+                            name: '🤖 CPU', 
+                            value: `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``, 
+                            inline: false 
+                        },
+                        { 
+                            name: '🤖 CPU usage', 
+                            value: `\`${percent.toFixed(2)}%\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '🤖 Arch', 
+                            value: `\`${os.arch()}\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: '\u200b', 
+                            value: '\u200b', 
+                            inline: true 
+                        },
+                        { 
+                            name: '💻 Platform', 
+                            value: `\`\`${os.platform()}\`\``, 
+                            inline: true 
+                        },
+                        { 
+                            name: 'API Latency', 
+                            value: `\`${client.ws.ping}ms\``, 
+                            inline: true 
+                        })
+                        .setFooter({text: "Coded by: Tejas Lamba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
                     interaction.reply({
                         embeds: [botinfo]
                     });
@@ -65,28 +137,99 @@ module.exports = {
                     }
                     if (connectedchannelsamount > client.guilds.cache.size) connectedchannelsamount = client.guilds.cache.size;
                     const botinfo = new EmbedBuilder()
-                        .setAuthor(client.user.username, client.user.displayAvatarURL())
+                        .setAuthor({text: client.user.username, iconURL: client.user.displayAvatarURL()})
                         .setTitle("__**Stats:**__")
                         .setColor(ee.color)
-                        .addField("⏳ Memory Usage", `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}/ ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB\``, true)
-                        .addField("⌚️ Uptime ", `${duration(client.uptime).map(i=>`\`${i}\``).join(", ")}`, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("📁 Users", `\`Total: ${client.users.cache.size} Users\``, true)
-                        .addField("📁 Servers", `\`Total: ${client.guilds.cache.size} Servers\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("📁 Voice-Channels", `\`${client.channels.cache.filter((ch) => ch.type === "GUILD_VOICE" || ch.type === "GUILD_STAGE_VOICE").size}\``, true)
-                        .addField("🔊 Connections", `\`${connectedchannelsamount} Connections\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("👾 Discord.js", `\`v${Discord.version}\``, true)
-                        .addField("🤖 Node", `\`${process.version}\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("🤖 CPU", `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``)
-                        .addField("🤖 CPU usage", `\`${percent.toFixed(2)}%\``, true)
-                        .addField("🤖 Arch", `\`${os.arch()}\``, true)
-                        .addField("\u200b", `\u200b`, true)
-                        .addField("💻 Platform", `\`\`${os.platform()}\`\``, true)
-                        .addField("API Latency", `\`${client.ws.ping}ms\``, true)
-                        .setFooter({text: "Coded by: Tejas Laba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
+                        .addFields({
+                            name: "⏳ Memory Usage",
+                            value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}/ ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB\``,
+                            inline: true
+                          },
+                          {
+                            name: "⌚️ Uptime",
+                            value: `${duration(client.uptime).map(i=>`\`${i}\``).join(", ")}`,
+                            inline: true   
+                          },
+                          {
+                            name: "\u200b",
+                            value: "\u200b",
+                            inline: true
+                          },
+                          {
+                            name: "📁 Users",
+                            value: `\`Total: ${client.users.cache.size} Users\``,
+                            inline: true
+                          },
+                          {
+                            name: "📁 Servers",
+                            value: `\`Total: ${client.guilds.cache.size} Servers\``,
+                            inline: true
+                          },
+                          {
+                            name: "\u200b",
+                            value: "\u200b",
+                            inline: true
+                          },
+                          {
+                            name: "📁 Voice-Channels",
+                            value: `\`${client.channels.cache.filter((ch) => ch.type === "GUILD_VOICE" || ch.type === "GUILD_STAGE_VOICE").size}\``,
+                            inline: true
+                          },
+                          {
+                            name: "🔊 Connections",
+                            value: `\`${connectedchannelsamount} Connections\``,
+                            inline: true
+                          },
+                          {
+                            name: "\u200b",
+                            value: "\u200b",
+                            inline: true
+                          },
+                          {
+                            name: "👾 Discord.js",
+                            value: `\`v${Discord.version}\``,
+                            inline: true
+                          },
+                          {
+                            name: "🤖 Node",
+                            value: `\`${process.version}\``,
+                            inline: true
+                          },
+                          {
+                            name: "\u200b",
+                            value: "\u200b",
+                            inline: true
+                          },
+                          {
+                            name: "🤖 CPU",
+                            value: `\`\`\`md\n${os.cpus().map((i) => `${i.model}`)[0]}\`\`\``
+                          },
+                          {
+                            name: "🤖 CPU usage",
+                            value: `\`${percent.toFixed(2)}%\``,
+                            inline: true
+                          },
+                          {
+                            name: "🤖 Arch",
+                            value: `\`${os.arch()}\``,
+                            inline: true
+                          },
+                          {
+                            name: "\u200b",
+                            value: "\u200b",
+                            inline: true
+                          },
+                          {
+                            name: "💻 Platform",
+                            value: `\`\`${os.platform()}\`\``,
+                            inline: true
+                          },
+                          {
+                            name: "API Latency",
+                            value: `\`${client.ws.ping}ms\``,
+                            inline: true
+                          })
+                        .setFooter({text: "Coded by: Tejas Lamba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
                         interaction.reply({
                         embeds: [botinfo]
                     });

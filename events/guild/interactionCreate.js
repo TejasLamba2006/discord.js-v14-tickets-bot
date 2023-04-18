@@ -9,14 +9,7 @@ const {
 const Discord = require("discord.js");
 module.exports = (client, interaction) => {
   const CategoryName = interaction.commandName;
-  client.settings.ensure(interaction.guildId, {
-    prefix: config.prefix,
-    defaultvolume: 50,
-    defaultautoplay: false,
-    defaultfilters: [`bassboost6`, `clear`],
-    djroles: [],
-  })
-  let prefix = client.settings.get(interaction.guildId)
+
   let command = false;
   try {
     if (client.slashCommands.has(CategoryName + interaction.options.getSubcommand())) {

@@ -41,8 +41,8 @@ client.maps = new Map();
 client.setMaxListeners(100); require('events').defaultMaxListeners = 100;
 
 
-//Require the Handlers                  Add the antiCrash file too, if its enabled
-["events", "commands", "slashCommands", settings.antiCrash ? "antiCrash" : null]
+//Require the Handlers Add the antiCrash file too, if its enabled
+["events", "slashCommands", settings.antiCrash ? "antiCrash" : null]
     .filter(Boolean)
     .forEach(h => {
         require(`./handlers/${h}`)(client);
