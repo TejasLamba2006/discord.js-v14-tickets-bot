@@ -49,10 +49,10 @@ module.exports = {
 
 Tip: [How to get a mongodb URL?](https://www.youtube.com/watch?v=RQMWKRlMtH0 "YouTube Video") <br>
 
-<br>
-- Step 3 <br>
+
+- Step 3 
   Now te final step. Run `npm install` and it will install all necessary packages. At last run `npm run start` or `node .`
-  <br>
+  
   **And your bot should be up and running!**<br>
 **For Emojis [Click here](https://discord.gg/rainbow-studios-free-codes-869916537610448897 "Rainbow Studios")**
 
