@@ -4,7 +4,6 @@ const {
 const config = require("../../botconfig/config.js");
 const ee = require("../../botconfig/embed.js");
 const settings = require("../../botconfig/settings.js");
-const websiteSettings = require("../../dashboard/settings.js");
 module.exports = {
   name: "help", //the command name for execution & for helpcmd [OPTIONAL]
   cooldown: 1, //the command cooldown for execution & for helpcmd [OPTIONAL]
@@ -58,13 +57,13 @@ module.exports = {
             embeds: [embed.setColor(ee.wrongcolor).setDescription(`No Information found for command **${args.toLowerCase()}**`)]
           });
         }
-        if (cmd.name) embed.addField({ name: "**Command name**", value: `\`${cmd.name}\`` });
+        if (cmd.name) embed.addFields({ name: "**Command name**", value: `\`${cmd.name}\`` });
         if (cmd.name) embed.setTitle(`Detailed Information about:\`${cmd.name}\``);
-        if (cmd.description) embed.addField({ name: "**Description**", value: `\`${cmd.description}\`` });
-        if (cmd.aliases) embed.addField({ name: "**Aliases**", value: `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\`` });
-        embed.addField({ name: "**Cooldown**", value: `\`${cmd.cooldown ? cmd.cooldown + " Seconds" : settings.default_cooldown_in_sec + " Second"}\`` });
+        if (cmd.description) embed.addFields({ name: "**Description**", value: `\`${cmd.description}\`` });
+        if (cmd.aliases) embed.addFields({ name: "**Aliases**", value: `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\`` });
+        embed.addFields({ name: "**Cooldown**", value: `\`${cmd.cooldown ? cmd.cooldown + " Seconds" : settings.default_cooldown_in_sec + " Second"}\`` });
         if (cmd.usage) {
-          embed.addField({ name: "**Usage**", value: `\`${prefix}${cmd.usage}\`` });
+          embed.addFields({ name: "**Usage**", value: `\`${prefix}${cmd.usage}\`` });
           embed.setFooter({text: "Syntax: <> = required, [] = optional"});
         }
         return interaction.reply({
@@ -76,7 +75,7 @@ module.exports = {
           .setColor(ee.color)
           .setThumbnail(client.user.displayAvatarURL())
           .setTitle("HELP MENU 🔰 Commands")
-          .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are available as Slash Commands too!**\n\n> Check out the [**Dashboard**](${websiteSettings.website.domain}/dashboard/${guild.id}) or the [**Live Music Queue**](${websiteSettings.website.domain}/queue/${guild.id})`)
+          .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are Slash Commands!**`)
           .setFooter({text: `To see command Descriptions and Information, type: ${prefix}help [CMD NAME]`, iconURL: client.user.displayAvatarURL()});
         const commands = (category) => {
           return client.commands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
@@ -85,7 +84,7 @@ module.exports = {
           for (let i = 0; i < client.categories.length; i += 1) {
             const current = client.categories[i];
             const items = commands(current);
-            embed.addField(`**${current.toUpperCase()} [${items.length}]**`, `> ${items.join(", ")}`);
+            embed.addFields(`**${current.toUpperCase()} [${items.length}]**`, `> ${items.join(", ")}`);
           }
         } catch (e) {
           console.log(String(e.stack).red);
