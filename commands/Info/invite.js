@@ -22,7 +22,7 @@ module.exports = {
         embeds: [
           new EmbedBuilder().setColor(ee.color)
           .setFooter({ text: ee.footertext, iconURL: ee.footericon})
-          .setDescription(`[**Click here to invite me!**](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)\n\n||[**Click here to invite me __without__ Slash Commands!**](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)||`)
+          .setDescription(`[**Click here to invite me!**](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)`)
         ]
       });
     } catch (e) {

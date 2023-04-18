@@ -19,7 +19,7 @@ module.exports = {
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   run: async (client, message, args) => {
     try {
-      let prefix = client.settings.get(message.guild.id, "prefix")
+      let prefix = "/"
       if (args[0] && args[0].length > 0) {
         const embed = new EmbedBuilder();
         const cmd = client.commands.get(args[0].toLowerCase()) || client.commands.get(client.aliases.get(args.toLowerCase()));
@@ -30,12 +30,12 @@ module.exports = {
         }
         if (cmd.name) embed.addField("**Command name**", `\`${cmd.name}\``);
         if (cmd.name) embed.setTitle(`Detailed Information about:\`${cmd.name}\``);
-        if (cmd.description) embed.addField("**Description**", `\`${cmd.description}\``);
-        if (cmd.aliases) embed.addField("**Aliases**", `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\``);
-        if (cmd.cooldown) embed.addField("**Cooldown**", `\`${cmd.cooldown} Seconds\``);
-        else embed.addField("**Cooldown**", `\`${settings.default_cooldown_in_sec} Second\``);
+        if (cmd.description) embed.addFields({name: "**Description**", value:`\`${cmd.description}\``});
+        if (cmd.aliases) embed.addField({name: "**Aliases**", value: `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\``});
+        if (cmd.cooldown) embed.addField({name:"**Cooldown**", value: `\`${cmd.cooldown} Seconds\``});
+        else embed.addField({name: "**Cooldown**", value: `\`${settings.default_cooldown_in_sec} Second\``});
         if (cmd.usage) {
-          embed.addField("**Usage**", `\`${prefix}${cmd.usage}\``);
+          embed.addField({name: "**Usage**", value:`\`${prefix}${cmd.usage}\``});
           embed.setFooter({text: "Syntax: <> = required, [] = optional"});
         }
         return message.reply({
@@ -46,7 +46,7 @@ module.exports = {
           .setColor(ee.color)
           .setThumbnail(ee.footericon)
           .setTitle("HELP MENU 🔰 Commands")
-          .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are available as Slash Commands too!**\n\n> Check out the [**Dashboard**](${websiteSettings.website.domain}/dashboard/${message.guild.id}) or the [**Live Music Queue**](${websiteSettings.website.domain}/queue/${message.guild.id})`)
+          .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are available as Slash Commands too!**`)
           .setFooter({text: `To see Command Description & Information, type: ${prefix}help [CMD NAME]`, iconURL: ee.footericon});
         const commands = (category) => {
           return client.commands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
@@ -55,7 +55,7 @@ module.exports = {
           for (let i = 0; i < client.categories.length; i += 1) {
             const current = client.categories[i];
             const items = commands(current);
-            embed.addField(`**${current.toUpperCase()} [${items.length}]**`, `> ${items.join(", ")}`);
+            embed.addField({name: `**${current.toUpperCase()} [${items.length}]**`, value: `> ${items.join(", ")}`});
           }
         } catch (e) {
           console.log(String(e.stack).red);

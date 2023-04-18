@@ -1,4 +1,4 @@
 //here the event starts
 module.exports = (client, info) => {
-  //console.log(String(info).grey);
+  console.log(String(info).grey);
 }

@@ -53,7 +53,7 @@ module.exports = {
                         .addField("\u200b", `\u200b`, true)
                         .addField("💻 Platform", `\`\`${os.platform()}\`\``, true)
                         .addField("API Latency", `\`${client.ws.ping}ms\``, true)
-                        .setFooter({text: "Coded by: Tejas Laba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
+                        .setFooter({text: "Coded by: Tejas Lamba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
                     message.reply({
                         embeds: [botinfo]
                     });
@@ -88,7 +88,7 @@ module.exports = {
                         .addField("\u200b", `\u200b`, true)
                         .addField("💻 Platform", `\`\`${os.platform()}\`\``, true)
                         .addField("API Latency", `\`${client.ws.ping}ms\``, true)
-                        .setFooter({text: "Coded by: Tejas Laba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
+                        .setFooter({text: "Coded by: Tejas Lamba#1924", iconURL: "https://cdn.discordapp.com/avatars/502406420453654529/d6d53ede023831dc96694de6c3de8c23.png?size=512"});
                     message.reply({
                         embeds: [botinfo]
                     });
