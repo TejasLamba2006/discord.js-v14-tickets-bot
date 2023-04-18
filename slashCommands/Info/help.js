@@ -47,7 +47,7 @@ module.exports = {
       const {
         guild
       } = member;
-      let prefix = client.settings.get(guild.id, "prefix")
+      let prefix = '/'
       let args = options.getString("specific_cmd");
       if (args && args.length > 0) {
         const embed = new EmbedBuilder();
@@ -58,15 +58,14 @@ module.exports = {
             embeds: [embed.setColor(ee.wrongcolor).setDescription(`No Information found for command **${args.toLowerCase()}**`)]
           });
         }
-        if (cmd.name) embed.addField("**Command name**", `\`${cmd.name}\``);
+        if (cmd.name) embed.addField({ name: "**Command name**", value: `\`${cmd.name}\`` });
         if (cmd.name) embed.setTitle(`Detailed Information about:\`${cmd.name}\``);
-        if (cmd.description) embed.addField("**Description**", `\`${cmd.description}\``);
-        if (cmd.aliases) embed.addField("**Aliases**", `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\``);
-        if (cmd.cooldown) embed.addField("**Cooldown**", `\`${cmd.cooldown} Seconds\``);
-        else embed.addField("**Cooldown**", `\`${settings.default_cooldown_in_sec} Second\``);
+        if (cmd.description) embed.addField({ name: "**Description**", value: `\`${cmd.description}\`` });
+        if (cmd.aliases) embed.addField({ name: "**Aliases**", value: `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\`` });
+        embed.addField({ name: "**Cooldown**", value: `\`${cmd.cooldown ? cmd.cooldown + " Seconds" : settings.default_cooldown_in_sec + " Second"}\`` });
         if (cmd.usage) {
-          embed.addField("**Usage**", `\`${prefix}${cmd.usage}\``);
-          embed.setFooter("Syntax: <> = required, [] = optional");
+          embed.addField({ name: "**Usage**", value: `\`${prefix}${cmd.usage}\`` });
+          embed.setFooter({text: "Syntax: <> = required, [] = optional"});
         }
         return interaction.reply({
           ephemeral: true,
@@ -78,7 +77,7 @@ module.exports = {
           .setThumbnail(client.user.displayAvatarURL())
           .setTitle("HELP MENU 🔰 Commands")
           .setDescription(`**[Invite me with __Slash Commands__ Permissions](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands), cause all of my Commands are available as Slash Commands too!**\n\n> Check out the [**Dashboard**](${websiteSettings.website.domain}/dashboard/${guild.id}) or the [**Live Music Queue**](${websiteSettings.website.domain}/queue/${guild.id})`)
-          .setFooter(`To see command Descriptions and Information, type: ${prefix}help [CMD NAME]`, client.user.displayAvatarURL());
+          .setFooter({text: `To see command Descriptions and Information, type: ${prefix}help [CMD NAME]`, iconURL: client.user.displayAvatarURL()});
         const commands = (category) => {
           return client.commands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
         };
