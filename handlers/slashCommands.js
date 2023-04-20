@@ -53,7 +53,11 @@ module.exports = (client) => {
 												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
 												.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
 											)
-										} else {
+										} else if(option.Attachment && option.Attachment.name && option.Attachment.description) {
+                      subcommand.addAttachmentOption((op) =>
+												op.setName(String(option.Attachment.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Attachment.description).setRequired(option.Attachment.required)
+											)
+                    } else {
 											console.log(`A Option is missing the Name or/and the Description of ${pull.name}`)
 										}
 									}
