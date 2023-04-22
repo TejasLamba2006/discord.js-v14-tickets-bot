@@ -8,7 +8,10 @@ const {
 } = require("../../handlers/functions");
 const Discord = require("discord.js");
 module.exports = (client, interaction) => {
- // interaction.deferReply();
+ if (interaction.isAutocomplete()) {
+   //DO STUFF HERE
+ }
+	// do autocomplete handling
   const CategoryName = interaction.commandName;
   let command = false;
   try {
@@ -85,3 +88,4 @@ module.exports = (client, interaction) => {
     command.run(client, interaction)
   }
 }
+
