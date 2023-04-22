@@ -24,38 +24,38 @@ module.exports = (client) => {
 									for(const option of pull.options){
 										if(option.User && option.User.name && option.User.description){
 											subcommand.addUserOption((op) =>
-												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required).setAutocomplete(option.User.autocomplete? true: false)
 											)
 										} else if(option.Integer && option.Integer.name && option.Integer.description){
 											subcommand.addIntegerOption((op) =>
-												op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
+												op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required).setAutocomplete(option.Integer.autocomplete? true: false)
 											)
 										} else if(option.String && option.String.name && option.String.description){
 											subcommand.addStringOption((op) =>
-												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
+												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required).setAutocomplete(option.String.autocomplete? true: false)
 											)
 										} else if(option.Channel && option.Channel.name && option.Channel.description){
 											subcommand.addChannelOption((op) =>
-												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required).setAutocomplete(option.Channel.autocomplete? true: false)
 											)
 										} else if(option.Role && option.Role.name && option.Role.description){
 											subcommand.addRoleOption((op) =>
-												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
+												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required).setAutocomplete(option.Role.autocomplete? true: false)
 											)
 										} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
                       const choices = option.StringChoices.choices.map(c => ({ name: String(c[0]).replace(/\s+/g, '_').toLowerCase(), value: c[1] }));
 											subcommand.addStringOption((op) =>
-												op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
+												op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required).setAutocomplete(option.StringChoices.autocomplete? true: false)
 												.addChoices(...choices),
 											)
 										} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
 											subcommand.addStringOption((op) =>
-												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
+												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required).setAutocomplete(option.IntChoices.autocomplete? true: false)
 												.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
 											)
 										} else if(option.Attachment && option.Attachment.name && option.Attachment.description) {
                       subcommand.addAttachmentOption((op) =>
-												op.setName(String(option.Attachment.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Attachment.description).setRequired(option.Attachment.required)
+												op.setName(String(option.Attachment.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Attachment.description).setRequired(option.Attachment.required).setAutocomplete(option.Attachment.autocomplete? true: false)
 											)
                     } else {
 											console.log(`A Option is missing the Name or/and the Description of ${pull.name}`)
@@ -84,32 +84,32 @@ module.exports = (client) => {
 							for(const option of pull.options){
 								if(option.User && option.User.name && option.User.description){
 									Command.addUserOption((op) =>
-										op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+										op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required).setAutocomplete(option.User.autocomplete? true: false)
 									)
 								} else if(option.Integer && option.Integer.name && option.Integer.description){
 									Command.addIntegerOption((op) =>
-										op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
+										op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required).setAutocomplete(option.Integer.autocomplete? true: false)
 									)
 								} else if(option.String && option.String.name && option.String.description){
 									Command.addStringOption((op) =>
-										op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
+										op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required).setAutocomplete(option.String.autocomplete? true: false)
 									)
 								} else if(option.Channel && option.Channel.name && option.Channel.description){
 									Command.addChannelOption((op) =>
-										op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+										op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required).setAutocomplete(option.Channel.autocomplete? true: false)
 									)
 								} else if(option.Role && option.Role.name && option.Role.description){
 									Command.addRoleOption((op) =>
-										op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
+										op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required).setAutocomplete(option.Role.autocomplete? true: false)
 									)
 								} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
 									Command.addStringOption((op) =>
-										op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
+										op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required).setAutocomplete(option.StringChoices.autocomplete? true: false)
 										.addChoices(option.StringChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),String(c[1])] )),
 									)
 								} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
 									Command.addStringOption((op) =>
-										op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
+										op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required).setAutocomplete(option.IntChoices.autocomplete? true: false)
 										.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
 									)
 								} else {
