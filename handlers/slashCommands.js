@@ -36,11 +36,11 @@ module.exports = (client) => {
 											)
 										} else if(option.Channel && option.Channel.name && option.Channel.description){
 											subcommand.addChannelOption((op) =>
-												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required).setAutocomplete(option.Channel.autocomplete? true: false)
+												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
 											)
 										} else if(option.Role && option.Role.name && option.Role.description){
 											subcommand.addRoleOption((op) =>
-												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required).setAutocomplete(option.Role.autocomplete? true: false)
+												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
 											)
 										} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
                       const choices = option.StringChoices.choices.map(c => ({ name: String(c[0]).replace(/\s+/g, '_').toLowerCase(), value: c[1] }));
