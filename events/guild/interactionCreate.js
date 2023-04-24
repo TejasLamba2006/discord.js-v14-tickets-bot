@@ -7,6 +7,7 @@ const {
   replacemsg
 } = require("../../handlers/functions");
 const Discord = require("discord.js");
+let prefix = '/';
 module.exports = (client, interaction) => {
  if (interaction.isAutocomplete()) {
    //DO STUFF HERE
