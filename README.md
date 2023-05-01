@@ -78,4 +78,4 @@ For support join our [discord support server](https://discord.gg/rainbow-studios
 
 # Authors
 
-- [@TajuModding](https://github.com/TajuModding)
+- [@TejasLamba2006](https://github.com/TejasLamba2006)
