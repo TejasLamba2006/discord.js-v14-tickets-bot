@@ -1,8 +1,8 @@
 module.exports = {
   "token": process.env.TOKEN,
-  "dbType": "", //quick.db OR MONGO
-  "MONGOtype": "", //quickmongo OR MONGOOSE
-  "MongoURL": "", //if dbType = MONGO, this is required else skip
+  "dbType": "MONGO", //MONGO only supported
+  "MONGOtype": "MONGOOSE", //MONGOOSE only supported
+  "MongoURL": "", //this is required
   "loadSlashsGlobal": true,
   "dirSetup": [{
     "Folder": "Info", "CmdName": "info",

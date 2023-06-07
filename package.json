@@ -1,22 +1,22 @@
 {
   "name": "discord.js-v14-handler",
   "version": "1.0.0",
-  "description": "",
+  "description": "A advanced discord.js v14 tickets bot with a lot of features.",
   "main": "index.js",
   "scripts": {
     "start": "node ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/The-Rainbow-Studios/discord.js-v14-handler"
+    "url": "git+https://github.com/TejasLamba2006/discord.js-v14-tickets-bot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/The-Rainbow-Studios/discord.js-v14-handler/issues"
+    "url": "https://github.com/TejasLamba2006/discord.js-v14-tickets-bot/issues"
   },
-  "homepage": "https://github.com/The-Rainbow-Studios/discord.js-v14-handler#readme",
+  "homepage": "https://github.com/TejasLamba2006/discord.js-v14-tickets-bot#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "cpu-stat": "^2.0.1",
