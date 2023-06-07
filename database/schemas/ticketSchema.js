@@ -1,16 +1,34 @@
-const { CategoryChannel } = require('discord.js');
 const mongoose = require('mongoose');
 
 const ticketSchema = mongoose.Schema({
-    guildId: String,
-    channelId: String,
+    guild: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Guild',
+    },
+    channel: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Channel',
+    },
     tickets: [{
-        userId: String,
-        channelId: String,
-        open: Boolean,
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+        },
+        channel: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Channel',
+        },
+        isOpen: Boolean,
         type: String,
     }],
-    CategoryChannel: String
-})
+    categoryChannel: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CategoryChannel',
+    },
+    staffRoles: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Role',
+    }],
+});
 
-module.exports = mongoose.model('ticket', ticketSchema)
+module.exports = mongoose.model('Ticket', ticketSchema);

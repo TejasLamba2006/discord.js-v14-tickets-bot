@@ -9,7 +9,7 @@ const {
 const Discord = require("discord.js");
 let prefix = '/';
 const ticketSchema = require("../../database/schemas/ticketSchema.js");
-module.exports = (client, interaction) => {
+module.exports = async (client, interaction) => {
  if (interaction.isAutocomplete()) {
    //DO STUFF HERE
  }
@@ -26,7 +26,12 @@ module.exports = (client, interaction) => {
     }
   }
   if (command) {
-    
+    let guildDb = await ticketSchema.findOne({
+      guildId: interaction.guild.id
+    });
+    if (!guildDb) guildDb = await ticketSchema.create({
+      guildId: interaction.guild.id,
+    });
     if (onCoolDown(interaction, command)) {
       return interaction.reply({
         ephemeral: true,
@@ -87,7 +92,7 @@ module.exports = (client, interaction) => {
       });
     }
     //execute the Command
-    command.run(client, interaction)
+    command.run(client, interaction, guildDb)
   }
 }
 
