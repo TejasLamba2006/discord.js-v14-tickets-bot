@@ -19,7 +19,6 @@ module.exports = async (client, interaction) => {
  if (interaction.isButton() || interaction.isStringSelectMenu()) {
 const cat = interaction.guild.channels.cache.get(guildDb.categoryChannel);
 if (!cat) return;
-console.log(interaction)
 if (interaction.customId === 'general' || (interaction.customId === "ticket" && interaction.values[0] === 'general')) {
   await interaction.deferReply({ ephemeral: true });
 const ticket = guildDb.tickets.find((x) => x.user === interaction.user.id);
