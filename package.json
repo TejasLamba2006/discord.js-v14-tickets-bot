@@ -20,7 +20,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "cpu-stat": "^2.0.1",
-    "discord.js": "^14.9.0",
+    "discord.js": "^14.11.0",
     "dotenv": "^16.0.3",
     "enmap": "^5.9.5",
     "mongoose": "^7.0.4",
