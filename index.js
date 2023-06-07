@@ -29,44 +29,13 @@ const client = new Discord.Client({
   }
 });
 //DataBase stuff
-if (config.dbType === "quick.db") {
-  const { QuickDB } = require("quick.db");
-  const db = new QuickDB();
-  client.db = db
-} else if (config.dbType === "MONGO") {
-  if (config.MONGOtype === "quickmongo") {
-    const { Database } = require('quickmongo')
-    const db = new Database(config.MongoURL);
-    main().catch(err => console.log(err));
-    db.on("ready", () => {
-      console.log("MongoDB connected!");
-    });
-    async function main() {
-      await db.connect();
-    }
-client.db = db
-  } else if (config.MONGOtype === "MONGOOSE") {
-    const mongoose = require('mongoose');
-
-    main().catch(err => console.log(err));
-
-    async function main() {
-      await mongoose.connect(config.MongoURL);
-    }
-    return new Promise((res) => {
-      mongo.connection.once("connected", () => {
-        console.log("MongoDB connected!");
-        res();
-      });
-    });
+if (config.dbType === "MONGO" && config.MONGOtype === "MONGOOSE") {
+    const connect = require("./database/connect.js");
+    connect(config);
   } else {
-    console.log('Invalid MongoType, only quickmongo and MONGOOSE Accepted')
+    console.log('Invalid DataBase types, only MONGOOSE Accepted')
     process.exit(1)
   }
-} else {
-  console.log('Invalid dbType OR No dbType given, Running without DataBase')
-}
-
 //Define some Global Collections
 client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
