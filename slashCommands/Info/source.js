@@ -36,7 +36,7 @@ module.exports = {
         embeds: [
           new EmbedBuilder().setColor(ee.color)
           .setFooter({ text: ee.footertext, iconURL: ee.footericon})
-          .setDescription(`**WHEN YOU USE THE SOURCE CODE, __GIVE CREDITS__!** :heart:\n\n[Link to Source](https://github.com/The-Rainbow-Studios/discord.js-v14-handler)\n\n[Youtube Tutorial]()`)
+          .setDescription(`**WHEN YOU USE THE SOURCE CODE, __GIVE CREDITS__!** :heart:\n\n[Link to Source](https://github.com/TejasLamba2006/discord.js-v14-tickets-bot)\n\n[Youtube Tutorial]()`)
         ]
       });
     } catch (e) {
