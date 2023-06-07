@@ -15,14 +15,12 @@ const client = new Discord.Client({
   intents: [
     Discord.GatewayIntentBits.Guilds,
     Discord.GatewayIntentBits.GuildMembers,
-    Discord.GatewayIntentBits.GuildIntegrations,
-    Discord.GatewayIntentBits.GuildVoiceStates,
+    Discord.GatewayIntentBits.GuildMessages,
     Discord.GatewayIntentBits.MessageContent,
-    Discord.GatewayIntentBits.GuildMessages
   ],
   presence: {
     activity: {
-      name: `+help | Rainbow Studios`,
+      name: `+help | Shadow Studios`,
       type: "PLAYING",
     },
     status: "online"

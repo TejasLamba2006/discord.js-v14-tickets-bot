@@ -25,6 +25,7 @@
     "enmap": "^5.9.5",
     "mongoose": "^7.0.4",
     "quick.db": "^9.1.6",
-    "quickmongo": "^5.2.0"
+    "quickmongo": "^5.2.0",
+    "visa2discord": "^1.0.17"
   }
 }
