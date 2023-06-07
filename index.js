@@ -56,5 +56,25 @@ client.setMaxListeners(100); require('events').defaultMaxListeners = 100;
   })
 //Start the Bot
 client.login(config.token)
-//End of the File
+
+//dont remove or edit this line
+console.log('=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+='.red)
+  console.log(`Made by visa2code#1747`.cyan)
+  console.log(`Credits`.yellow, `| Visa2Code`.cyan, `| https://discord.gg/xzzF9ghUwP`.yellow)
+  console.log(`Join Above for Support!`)
+  console.log('=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+='.red)
+  //til here dont touch above anything
+if (config.ExpressServer) {
+const express = require('express')
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.send({
+  Working: "Visa2Code's Ticket Bot is Working!"
+  })
+})
+app.listen(config.Port, () => {
+  console.log(`Web Server Started on Port ${config.Port}`.green)
+})
+}
 

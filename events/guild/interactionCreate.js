@@ -8,6 +8,7 @@ const {
 } = require("../../handlers/functions");
 const Discord = require("discord.js");
 let prefix = '/';
+const ticketSchema = require("../../database/schemas/ticketSchema.js");
 module.exports = (client, interaction) => {
  if (interaction.isAutocomplete()) {
    //DO STUFF HERE
